@@ -1,62 +1,83 @@
 /* Login.css */
 .login-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.login-container:hover {
+    transform: scale(1.05);
 }
 
 .login-form {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-group {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .form-group label {
-  margin-bottom: 5px;
-  font-weight: bold;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
 }
 
 .form-input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-input:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
 .form-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 3px;
-  background-color: #007bff;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
 }
 
 .form-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
+    background-color: #cccccc;
+    cursor: not-allowed;
 }
 
 .form-button:hover:enabled {
-  background-color: #0056b3;
+    background: linear-gradient(135deg, #0056b3, #003f7f);
 }
 
 .form-message {
-  margin-top: 15px;
-  color: red;
-  font-weight: bold;
+    margin-top: 15px;
+    color: red;
+    font-weight: bold;
 }
 
 .form-error {
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
 }
