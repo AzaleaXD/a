@@ -6,7 +6,7 @@
 }
 
 body {
-    background: url('path/to/your/image.jpg') no-repeat center center fixed;
+    background: url('/assets/imageslogo.jpg') no-repeat center center fixed;
     background-size: cover;
     animation: backgroundAnimation 10s infinite linear;
 }
