@@ -1,9 +1,18 @@
 /* Login.css */
+:root {
+    --primary-color: #ff6347;
+    --secondary-color: #ff4500;
+    --background-gradient: linear-gradient(135deg, #ffcc33, #ff6666, #66ccff, #99ff99);
+    --border-color: #000;
+    --box-shadow-color: #000;
+    --font-family: 'Arial', sans-serif;
+}
+
 body {
-    background: linear-gradient(135deg, #ffcc33, #ff6666, #66ccff, #99ff99);
+    background: var(--background-gradient);
     background-size: 400% 400%;
     animation: gradientAnimation 15s ease infinite;
-    font-family: 'Arial', sans-serif;
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
     display: flex;
@@ -20,9 +29,9 @@ body {
 
 .container {
     background-color: #fff;
-    border: 10px solid #000;
+    border: 10px solid var(--border-color);
     padding: 30px;
-    box-shadow: 15px 15px 0 #000;
+    box-shadow: 15px 15px 0 var(--box-shadow-color);
     max-width: 400px;
     width: 100%;
     text-align: center;
@@ -31,14 +40,14 @@ body {
 }
 
 @keyframes containerAnimation {
-    0% { transform: rotate(-5deg); }
-    100% { transform: rotate(5deg); }
+    0% { transform: rotate(-3deg); }
+    100% { transform: rotate(3deg); }
 }
 
 h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: #ff6347;
+    color: var(--primary-color);
     text-transform: uppercase;
     letter-spacing: 4px;
     animation: h1Animation 1s ease-in-out infinite alternate;
@@ -46,44 +55,44 @@ h1 {
 
 @keyframes h1Animation {
     0% { transform: scale(1); }
-    100% { transform: scale(1.2); }
+    100% { transform: scale(1.1); }
 }
 
 input[type="text"], input[type="password"] {
     width: calc(100% - 20px);
     padding: 15px;
     margin: 15px 0;
-    border: 3px solid #000;
-    box-shadow: 7px 7px 0 #000;
+    border: 3px solid var(--border-color);
+    box-shadow: 7px 7px 0 var(--box-shadow-color);
     font-size: 1.2em;
     animation: inputAnimation 1s ease-in-out infinite alternate;
 }
 
 @keyframes inputAnimation {
     0% { transform: translateX(0); }
-    100% { transform: translateX(10px); }
+    100% { transform: translateX(5px); }
 }
 
 button {
-    background-color: #ff6347;
+    background-color: var(--primary-color);
     color: #fff;
-    border: 3px solid #000;
+    border: 3px solid var(--border-color);
     padding: 15px 30px;
     font-size: 1.2em;
     cursor: pointer;
-    box-shadow: 7px 7px 0 #000;
+    box-shadow: 7px 7px 0 var(--box-shadow-color);
     transition: all 0.2s ease;
     animation: buttonAnimation 1s ease-in-out infinite alternate;
 }
 
 @keyframes buttonAnimation {
     0% { transform: translateY(0); }
-    100% { transform: translateY(10px); }
+    100% { transform: translateY(5px); }
 }
 
 button:hover {
-    background-color: #ff4500;
-    box-shadow: 3px 3px 0 #000;
+    background-color: var(--secondary-color);
+    box-shadow: 3px 3px 0 var(--box-shadow-color);
 }
 
 button:active {
@@ -105,4 +114,3 @@ button:active {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-

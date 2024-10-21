@@ -1,5 +1,25 @@
-import React, { useState } from 'react';
-import './Login.css'; // Import the CSS file
+import React, { useState, useCallback } from 'react';
+import styles from './Login.css'; // Use CSS modules
+
+const FormInput = ({ label, value, onChange, error }) => (
+    <div className={styles.formGroup}>
+        <label>{label}</label>
+        <input
+            type="text"
+            value={value}
+            onChange={onChange}
+            required
+            className={styles.formInput}
+        />
+        {error && <p className={styles.formError}>{error}</p>}
+    </div>
+);
+
+const FormButton = ({ onClick, disabled, children }) => (
+    <button onClick={onClick} className={styles.formButton} disabled={disabled}>
+        {children}
+    </button>
+);
 
 function Login() {
     const [authKey, setAuthKey] = useState('');
@@ -7,7 +27,7 @@ function Login() {
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
 
-    const validate = () => {
+    const validate = useCallback(() => {
         const errors = {};
         if (!authKey) {
             errors.authKey = 'Authentication key is required';
@@ -15,7 +35,7 @@ function Login() {
             errors.authKey = 'Authentication key must be at least 6 characters long';
         }
         return errors;
-    };
+    }, [authKey]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -48,8 +68,6 @@ function Login() {
     };
 
     const handleGetKey = async () => {
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        loadingSpinner.classList.add('active');
         setLoading(true);
         try {
             const response = await fetch('https://your-auth-server.com/get-key', {
@@ -66,34 +84,28 @@ function Login() {
             alert('An error occurred. Please try again.');
         } finally {
             setLoading(false);
-            loadingSpinner.classList.remove('active');
         }
     };
 
     return (
-        <div className="login-container">
+        <div className={styles.loginContainer}>
             <h2>Login</h2>
-            <form onSubmit={handleSubmit} className="login-form">
-                <div className="form-group">
-                    <label>Authentication Key:</label>
-                    <input
-                        type="text"
-                        value={authKey}
-                        onChange={(e) => setAuthKey(e.target.value)}
-                        required
-                        className="form-input"
-                    />
-                    {errors.authKey && <p className="form-error">{errors.authKey}</p>}
-                </div>
-                <button type="submit" className="form-button" disabled={loading}>
+            <form onSubmit={handleSubmit} className={styles.loginForm}>
+                <FormInput
+                    label="Authentication Key:"
+                    value={authKey}
+                    onChange={(e) => setAuthKey(e.target.value)}
+                    error={errors.authKey}
+                />
+                <FormButton disabled={loading}>
                     {loading ? 'Loading...' : 'Login'}
-                </button>
+                </FormButton>
             </form>
-            <button onClick={handleGetKey} className="form-button" disabled={loading}>
+            <FormButton onClick={handleGetKey} disabled={loading}>
                 {loading ? 'Loading...' : 'Get Key'}
-            </button>
-            {message && <p className="form-message">{message}</p>}
-            <div id="loadingSpinner" className="loading-spinner"></div>
+            </FormButton>
+            {message && <p className={styles.formMessage}>{message}</p>}
+            {loading && <div className={styles.loadingSpinner}></div>}
         </div>
     );
 }
