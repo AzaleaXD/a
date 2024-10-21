@@ -1,7 +1,7 @@
 /* Login.css */
 body {
     font-family: 'Arial', sans-serif;
-    background: url('/assets/videos/background.mp4') no-repeat center center fixed;
+    background: url('/assets/up.mp4') repeat center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -9,7 +9,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
 }
 body {
     font-family: 'Arial', sans-serif;
