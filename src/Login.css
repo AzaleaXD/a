@@ -1,83 +1,70 @@
 /* Login.css */
-.login-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
-    transition: transform 0.3s ease-in-out;
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-.login-container:hover {
-    transform: scale(1.05);
+body {
+    background: url('path/to/your/image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    animation: backgroundAnimation 10s infinite linear;
 }
-
-.login-form {
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.container {
+    background-color: #fff;
+    border: 5px solid #000;
+    padding: 20px;
+    box-shadow: 10px 10px 0 #000;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
 }
 
-.form-group label {
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ff6347;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.form-input {
+input[type="text"], input[type="password"] {
+    width: calc(100% - 20px);
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s ease-in-out;
+    margin: 10px 0;
+    border: 2px solid #000;
+    box-shadow: 5px 5px 0 #000;
+    font-size: 1em;
 }
 
-.form-input:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-.form-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    background: linear-gradient(135deg, #007bff, #0056b3);
-    color: white;
-    font-size: 16px;
+button {
+    background-color: #ff6347;
+    color: #fff;
+    border: 2px solid #000;
+    padding: 10px 20px;
+    font-size: 1em;
     cursor: pointer;
-    transition: background 0.3s ease-in-out;
+    box-shadow: 5px 5px 0 #000;
+    transition: all 0.2s ease;
 }
 
-.form-button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
+button:hover {
+    background-color: #ff4500;
+    box-shadow: 2px 2px 0 #000;
 }
 
-.form-button:hover:enabled {
-    background: linear-gradient(135deg, #0056b3, #003f7f);
-}
-
-.form-message {
-    margin-top: 15px;
-    color: red;
-    font-weight: bold;
-}
-
-.form-error {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-    animation: shake 0.3s ease-in-out;
-}
-
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
+button:active {
+    box-shadow: none;
+    transform: translate(2px, 2px);
 }
